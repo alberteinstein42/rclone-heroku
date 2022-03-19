@@ -1,2 +1,4 @@
 #!/bin/sh
 echo "--- {}"
+#Loading config from Config Var
+echo -e $RCLONE_CONFIG > /app/.config/rclone/rclone.conf
