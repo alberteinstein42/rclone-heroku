@@ -25,3 +25,18 @@ echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/rclone.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:${HOME}/vendor/rclone"' >> $PROFILE_PATH
+
+
+#rclone config loading
+echo "loading rclone config from ENV VARs" | indent
+echo "Config VAR Data = $CONFIG_RCLONE" | indent
+echo "Saving to" $(pwd) | indent
+echo -e "$CONFIG_RCLONE" > rclone.conf
+echo "Saved config" | indent
+echo "Config data - " | indent
+cat rclone.conf
+echo "Updating rclone config file location" | indent
+rclone --config="$(pwd)/rclone.conf"
+echo "rclone config updated" | indent
+rclone config file
+rclone ls MsGSuiteDB:
