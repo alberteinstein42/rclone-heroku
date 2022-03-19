@@ -25,7 +25,3 @@ echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/rclone.sh"
 mkdir -p $(dirname $PROFILE_PATH)
 echo 'export PATH="$PATH:${HOME}/vendor/rclone"' >> $PROFILE_PATH
-
-#Loading config from Config Var
-mkdir -p /app/.config/rclone
-echo -e $RCLONE_CONFIG_STRING | dd of= /app/.config/rclone/rclone.conf
