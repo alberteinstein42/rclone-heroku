@@ -28,4 +28,4 @@ echo 'export PATH="$PATH:${HOME}/vendor/rclone"' >> $PROFILE_PATH
 
 #Loading config from Config Var
 mkdir -p /app/.config/rclone
-echo -e $RCLONE_CONFIG_STRING > /app/.config/rclone/rclone.conf
+echo -e $RCLONE_CONFIG_STRING | dd of= /app/.config/rclone/rclone.conf
