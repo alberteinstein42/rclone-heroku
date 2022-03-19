@@ -1,2 +1,17 @@
 #!/bin/sh
 echo "--- {}"
+BUILD_DIR=$1
+
+#rclone config loading
+echo "loading rclone config from ENV VARs" | indent
+echo "Config VAR Data = $CONFIG_RCLONE" | indent
+echo "Saving to" $BUILD_DIR | indent
+echo -e "$CONFIG_RCLONE" > $BUILD_DIR/rclone.conf
+echo "Saved config" | indent
+echo "Config data - " | indent
+cat $BUILD_DIR/rclone.conf
+echo "Updating rclone config file location" | indent
+rclone --config="$BUILD_DIR/rclone.conf"
+echo "rclone config updated" | indent
+rclone config file
+rclone ls MsGSuiteDB:
